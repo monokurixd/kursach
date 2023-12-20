@@ -74,7 +74,7 @@ function createInput(elementType, inputType, id, accept, changeHandler) {
   const input = document.createElement(elementType);
   input.setAttribute('type', inputType);
   input.setAttribute('id', id);
-  input.setAttribute('accept', ['.csv','.txt']);
+  input.setAttribute('accept', ['.csv','.txt', '.xlsx']);
   if (changeHandler) {
     input.addEventListener('change', changeHandler);
   }
@@ -141,7 +141,7 @@ function loadCSV() {
     const file = fileInput.files[0];
     const fileType = file.name.split('.').pop().toLowerCase();
 
-    if (fileType === 'csv' || fileType === 'txt' ) {
+    if (fileType === 'csv' || fileType === 'txt' || fileType === 'xlsx' ) {
       const reader = new FileReader();
 
       reader.onload = function (e) {
